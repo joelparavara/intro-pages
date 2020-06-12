@@ -8,12 +8,16 @@
 
 import UIKit
 
+extension UIColor {
+    static var mainPink = UIColor(displayP3Red: 232/255, green: 68/255, blue: 133/255, alpha: 1)
+}
+
 class ViewController: UIViewController {
       
     let imageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "welcome.jpg"))
         imageView.contentMode = .scaleAspectFit
-        imageView.layer.cornerRadius = 12
+        imageView.layer.cornerRadius = 24
         imageView.layer.masksToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -21,26 +25,73 @@ class ViewController: UIViewController {
     
     let descriptionTextView : UITextView = {
         let textView = UITextView()
-        textView.text = "Join us today in our fun and games"
-        textView.font = UIFont.boldSystemFont(ofSize: 18)
+        let attributedText = NSMutableAttributedString(string: "Join us today in our fun and games", attributes: [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 18)])
+        
+        attributedText.append(NSAttributedString(string: "\n\n\nAre you ready for loads and loads of fun? Don't wait any longer sign up now with Techcrus Labs!. We hope to see you soon", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 13), NSAttributedString.Key.foregroundColor : UIColor.gray]))
+        
+        textView.attributedText = attributedText
         textView.textAlignment = .center
         textView.isEditable = false
         textView.isScrollEnabled = false
         textView.translatesAutoresizingMaskIntoConstraints = false
         return textView
     }()
-
+    
+    private let previousButton : UIButton = {
+        let btn = UIButton(type: .system)
+        btn.setTitle("BACK", for: .normal)
+        btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        btn.setTitleColor(.gray, for: .normal)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }()
+    
+    private let nextButton : UIButton = {
+        let btn = UIButton(type: .system)
+        btn.setTitle("NEXT", for: .normal)
+        btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        btn.setTitleColor(.mainPink, for: .normal)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }()
+    
+    private let pageControl : UIPageControl = {
+        let pc = UIPageControl()
+        pc.currentPage = 0
+        pc.numberOfPages = 4
+        pc.currentPageIndicatorTintColor = .red
+        pc.pageIndicatorTintColor = .lightGray
+        return pc
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.init(displayP3Red: 248, green: 248, blue: 241, alpha: 5)
     
         setupLayout()
-        
+        setupBottomControls()
     }
     
+    fileprivate func setupBottomControls() {
+        
+        //Creating Bottom StackView  &&  Setup
+        let bottomControlsStackView = UIStackView(arrangedSubviews: [previousButton, pageControl, nextButton])
+        bottomControlsStackView.translatesAutoresizingMaskIntoConstraints = false
+        bottomControlsStackView.distribution = .fillEqually
+        view.addSubview(bottomControlsStackView)
+        
+        //Auto Layout Constratints for BottomStackView
+        NSLayoutConstraint.activate([
+            bottomControlsStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            bottomControlsStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            bottomControlsStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            bottomControlsStackView.heightAnchor.constraint(equalToConstant: 50)
+        ])
+    }
+    //Function integrating all elements and autolayouts
     private func setupLayout() {
         let topImageContainerView = UIView()
-        topImageContainerView.backgroundColor = .blue
+        topImageContainerView.backgroundColor = .white
         view.addSubview(topImageContainerView)
         topImageContainerView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -60,8 +111,8 @@ class ViewController: UIViewController {
         topImageContainerView.addSubview(descriptionTextView)
         // Setup Constrains for Text View
         descriptionTextView.topAnchor.constraint(equalTo: topImageContainerView.bottomAnchor, constant: 10).isActive = true
-        descriptionTextView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        descriptionTextView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        descriptionTextView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
+        descriptionTextView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
         descriptionTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 120).isActive = true
     }
     
