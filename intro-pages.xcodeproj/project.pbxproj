@@ -13,6 +13,8 @@
 		660DF212248178FD007F663A /* intro_pages.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 660DF210248178FD007F663A /* intro_pages.xcdatamodeld */; };
 		660DF214248178FF007F663A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 660DF213248178FF007F663A /* Assets.xcassets */; };
 		660DF217248178FF007F663A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 660DF215248178FF007F663A /* LaunchScreen.storyboard */; };
+		663B0E5E2493A0F800163914 /* SwipingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663B0E5D2493A0F800163914 /* SwipingController.swift */; };
+		663B0E602493B37A00163914 /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663B0E5F2493B37A00163914 /* PageCell.swift */; };
 		66E9832224928F0800EF7DC6 /* welcome.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 66E9832124928F0700EF7DC6 /* welcome.jpg */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +27,8 @@
 		660DF213248178FF007F663A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		660DF216248178FF007F663A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		660DF218248178FF007F663A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		663B0E5D2493A0F800163914 /* SwipingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingController.swift; sourceTree = "<group>"; };
+		663B0E5F2493B37A00163914 /* PageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
 		66E9832124928F0700EF7DC6 /* welcome.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = welcome.jpg; path = ../../../Downloads/welcome.jpg; sourceTree = "<group>"; };
 		66E983232492A61100EF7DC6 /* welcome.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = welcome.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -68,6 +72,8 @@
 				660DF215248178FF007F663A /* LaunchScreen.storyboard */,
 				660DF218248178FF007F663A /* Info.plist */,
 				660DF210248178FD007F663A /* intro_pages.xcdatamodeld */,
+				663B0E5D2493A0F800163914 /* SwipingController.swift */,
+				663B0E5F2493B37A00163914 /* PageCell.swift */,
 			);
 			path = "intro-pages";
 			sourceTree = "<group>";
@@ -145,7 +151,9 @@
 			files = (
 				660DF20C248178FD007F663A /* ViewController.swift in Sources */,
 				660DF208248178FD007F663A /* AppDelegate.swift in Sources */,
+				663B0E602493B37A00163914 /* PageCell.swift in Sources */,
 				660DF20A248178FD007F663A /* SceneDelegate.swift in Sources */,
+				663B0E5E2493A0F800163914 /* SwipingController.swift in Sources */,
 				660DF212248178FD007F663A /* intro_pages.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

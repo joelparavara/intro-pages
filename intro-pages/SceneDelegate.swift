@@ -13,11 +13,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard let win = (scene as? UIWindowScene) else { return }
-    
-        window = UIWindow.init(windowScene: win)
-        window?.rootViewController = ViewController()
+        
+        
+        
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(windowScene: windowScene)
         window?.makeKeyAndVisible()
+               
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        let swipingVC = SwipingController(collectionViewLayout: layout)
+        window?.rootViewController = swipingVC
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

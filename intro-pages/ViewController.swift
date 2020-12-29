@@ -88,6 +88,7 @@ class ViewController: UIViewController {
             bottomControlsStackView.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
+    
     //Function integrating all elements and autolayouts
     private func setupLayout() {
         let topImageContainerView = UIView()
